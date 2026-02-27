@@ -87,18 +87,18 @@ const LovePhases = () => {
                 data-index={i}
                 className={`relative text-center group transition-all duration-700 ${
                   visibleItems.includes(i) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-                }`}
+                } ${i > 0 ? "grayscale blur-[1.5px] opacity-60 pointer-events-none select-none" : ""}`}
                 style={{ transitionDelay: `${i * 150}ms` }}
               >
                 {/* Circle */}
-                <div className="w-20 h-20 mx-auto mb-6 rounded-full border-2 border-accent/40 flex items-center justify-center text-3xl group-hover:border-accent group-hover:bg-accent/10 transition-all duration-500">
+                <div className={`w-20 h-20 mx-auto mb-6 rounded-full border-2 flex items-center justify-center text-3xl transition-all duration-500 ${i === 0 ? "border-accent/40 group-hover:border-accent group-hover:bg-accent/10" : "border-muted-foreground/30"}`}>
                   {phase.icon}
                 </div>
 
-                <p className="text-accent font-body text-xs tracking-[0.3em] uppercase mb-1">
-                  {phase.phase}
+                <p className={`font-body text-xs tracking-[0.3em] uppercase mb-1 ${i === 0 ? "text-accent" : "text-muted-foreground/50"}`}>
+                  {phase.phase}{i > 0 && " · Coming Soon"}
                 </p>
-                <h3 className="font-heading text-xl md:text-2xl font-semibold text-foreground mb-3">
+                <h3 className={`font-heading text-xl md:text-2xl font-semibold mb-3 ${i === 0 ? "text-foreground" : "text-muted-foreground"}`}>
                   {phase.name}
                 </h3>
                 <p className="text-muted-foreground font-body text-sm leading-relaxed max-w-xs mx-auto">
