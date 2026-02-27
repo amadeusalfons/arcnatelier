@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { supabase } from "@/lib/supabase";
 
 type QuizStep = "q1" | "q2" | "lead" | "result";
 
@@ -38,6 +39,7 @@ const ScentFinder = () => {
   const [step, setStep] = useState<QuizStep>("q1");
   const [quiz, setQuiz] = useState<QuizState>({ lovePhase: "", vibe: "", name: "", email: "" });
   const [direction, setDirection] = useState<"left" | "right">("right");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const goNext = (nextStep: QuizStep) => {
     setDirection("right");
@@ -49,15 +51,33 @@ const ScentFinder = () => {
     setStep(prevStep);
   };
 
-  const handleLeadSubmit = (e: React.FormEvent) => {
+  const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!quiz.name.trim() || !quiz.email.trim()) {
       toast.error("Please enter your name and email.");
       return;
     }
-    // In production, send to webhook here
-    console.log("Lead captured:", quiz);
-    goNext("result");
+
+    const scentResult = (recommendations[quiz.lovePhase] || recommendations.spark).name;
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase.from("quiz_leads").insert({
+        name: quiz.name.trim(),
+        email: quiz.email.trim(),
+        scent_result: scentResult,
+      });
+
+      if (error) throw error;
+
+      toast.success("Your scent match is ready! ✨");
+      goNext("result");
+    } catch (err: any) {
+      console.error("Lead insert error:", err);
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const result = recommendations[quiz.lovePhase] || recommendations.spark;
@@ -182,9 +202,10 @@ const ScentFinder = () => {
                 />
                 <button
                   type="submit"
-                  className="w-full py-3.5 gradient-gold text-accent-foreground font-semibold tracking-wider uppercase text-sm rounded-sm hover:opacity-90 transition-opacity"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 gradient-gold text-accent-foreground font-semibold tracking-wider uppercase text-sm rounded-sm hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Reveal My Scent
+                  {isSubmitting ? "Revealing…" : "Reveal My Scent"}
                 </button>
               </form>
               <button
