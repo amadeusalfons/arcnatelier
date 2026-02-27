@@ -20,21 +20,21 @@ const Footer = () => {
             </h5>
             <ul className="space-y-2">
               {[
-                { label: "Home", href: "#home" },
-                { label: "Our Concept", href: "#concept" },
-                { label: "Catalogue", href: "#catalogue" },
-                { label: "About Us", href: "#about" },
-                { label: "Scent Finder", href: "#scent-finder" },
-              ].map((link) => (
-                <li key={link.href}>
+              { label: "Home", href: "#home" },
+              { label: "Our Concept", href: "#concept" },
+              { label: "Catalogue", href: "#catalogue" },
+              { label: "About Us", href: "#about" },
+              { label: "Scent Finder", href: "#scent-finder" }].
+              map((link) =>
+              <li key={link.href}>
                   <a
-                    href={link.href}
-                    className="text-primary-foreground/60 hover:text-accent font-body text-sm transition-colors"
-                  >
+                  href={link.href}
+                  className="text-primary-foreground/60 hover:text-accent font-body text-sm transition-colors">
+
                     {link.label}
                   </a>
                 </li>
-              ))}
+              )}
             </ul>
           </div>
 
@@ -43,11 +43,11 @@ const Footer = () => {
             <h5 className="font-heading text-lg font-semibold text-primary-foreground mb-4">
               Connect
             </h5>
-            <p className="text-primary-foreground/60 font-body text-sm mb-2">
-              hello@arcn.co
+            <p className="text-primary-foreground/60 font-body text-sm mb-2">arcnatelier@gmail.com
+
             </p>
-            <p className="text-primary-foreground/60 font-body text-sm">
-              Follow us on Instagram @arcn.scent
+            <p className="text-primary-foreground/60 font-body text-sm">Follow us on Instagram @arcn.atelier
+
             </p>
           </div>
         </div>
@@ -58,8 +58,8 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 };
 
 export default Footer;
