@@ -46,9 +46,9 @@ const Footer = () => {
             <p className="text-primary-foreground/60 font-body text-sm mb-2">arcnatelier@gmail.com
 
             </p>
-            <p className="text-primary-foreground/60 font-body text-sm">Follow us on Instagram @arcn.atelier
-
-            </p>
+            <a href="https://www.instagram.com/arcn.atelier/" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/60 hover:text-accent font-body text-sm transition-colors">
+              Follow us on Instagram @arcn.atelier
+            </a>
           </div>
         </div>
 
