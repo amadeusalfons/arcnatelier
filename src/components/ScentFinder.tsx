@@ -80,7 +80,7 @@ const ScentFinder = () => {
       toast.success("Your scent match is ready! ✨");
       goNext("result");
     } catch (err: unknown) {
-      console.error("Lead insert error:", err);
+      if (import.meta.env.DEV) console.error("Lead insert error:", err);
       toast.error("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
