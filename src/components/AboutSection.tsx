@@ -33,7 +33,7 @@ const AboutSection = () => {
       toast.success("Message sent! We'll be in touch soon.");
       setForm({ name: "", email: "", subject: "", message: "" });
     } catch (err: unknown) {
-      console.error("Contact form error:", err);
+      if (import.meta.env.DEV) console.error("Contact form error:", err);
       toast.error("Something went wrong. Please try again later.");
     } finally {
       setSending(false);
