@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { z } from "zod";
 import { supabase } from "@/lib/supabase";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name is too long"),
+  email: z.string().trim().email("Please enter a valid email").max(255, "Email is too long"),
+  subject: z.string().trim().max(200, "Subject is too long").optional().default(""),
+  message: z.string().trim().min(1, "Message is required").max(1000, "Message is too long"),
+});
 
 const AboutSection = () => {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
@@ -8,23 +16,25 @@ const AboutSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
-      toast.error("Please fill in all required fields.");
+    const parsed = contactSchema.safeParse(form);
+    if (!parsed.success) {
+      toast.error(parsed.error.errors[0]?.message || "Please check your input.");
       return;
     }
     setSending(true);
     try {
       const { error } = await supabase.from("contact_leads").insert({
-        name: form.name.trim(),
-        email: form.email.trim(),
-        subject: form.subject.trim() || null,
-        message: form.message.trim(),
+        name: parsed.data.name,
+        email: parsed.data.email,
+        subject: parsed.data.subject || null,
+        message: parsed.data.message,
       });
       if (error) throw error;
       toast.success("Message sent! We'll be in touch soon.");
       setForm({ name: "", email: "", subject: "", message: "" });
-    } catch (err: any) {
-      toast.error(err?.message || "Something went wrong. Please try again.");
+    } catch (err: unknown) {
+      console.error("Contact form error:", err);
+      toast.error("Something went wrong. Please try again later.");
     } finally {
       setSending(false);
     }
