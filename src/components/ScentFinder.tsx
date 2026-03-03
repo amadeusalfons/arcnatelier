@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { z } from "zod";
 import { supabase } from "@/lib/supabase";
 
 type QuizStep = "q1" | "q2" | "lead" | "result";
@@ -51,10 +52,16 @@ const ScentFinder = () => {
     setStep(prevStep);
   };
 
+  const leadSchema = z.object({
+    name: z.string().trim().min(1, "Name is required").max(100, "Name is too long"),
+    email: z.string().trim().email("Please enter a valid email").max(255, "Email is too long"),
+  });
+
   const handleLeadSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!quiz.name.trim() || !quiz.email.trim()) {
-      toast.error("Please enter your name and email.");
+    const parsed = leadSchema.safeParse({ name: quiz.name, email: quiz.email });
+    if (!parsed.success) {
+      toast.error(parsed.error.errors[0]?.message || "Please check your input.");
       return;
     }
 
@@ -63,8 +70,8 @@ const ScentFinder = () => {
 
     try {
       const { error } = await supabase.from("quiz_leads").insert({
-        name: quiz.name.trim(),
-        email: quiz.email.trim(),
+        name: parsed.data.name,
+        email: parsed.data.email,
         scent_result: scentResult,
       });
 
@@ -72,7 +79,7 @@ const ScentFinder = () => {
 
       toast.success("Your scent match is ready! ✨");
       goNext("result");
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Lead insert error:", err);
       toast.error("Something went wrong. Please try again.");
     } finally {
