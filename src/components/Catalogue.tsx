@@ -10,7 +10,7 @@ const products = [
     description: "A full-bodied fragrance that tells your complete love story. Bold, lasting, and unmistakably yours.",
     notes: "Top: Bergamot, Pink Pepper · Heart: Rose, Oud · Base: Amber, Vanilla",
     image: productEdp,
-    price: "IDR 299K",
+    
   },
   {
     name: "Room Diffuser",
@@ -18,7 +18,7 @@ const products = [
     description: "Transform your space into a chapter of your story. Subtle, continuous, and enveloping.",
     notes: "Sandalwood, White Musk, Cedarwood, Warm Amber",
     image: productDiffuser,
-    price: "IDR 199K",
+    
   },
   {
     name: "Discovery Kit",
@@ -26,7 +26,7 @@ const products = [
     description: "Five miniature bottles, each representing a Love Phase. The perfect introduction to ARCN.",
     notes: "All 5 Love Phase scents · 5 x 5ml travel vials",
     image: productKit,
-    price: "IDR 249K",
+    
   },
 ];
 
@@ -97,13 +97,15 @@ const Catalogue = () => {
               <p className="text-accent/80 font-body text-xs tracking-wide mb-4 italic">
                 {product.notes}
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-accent font-heading text-xl font-semibold">
-                  {product.price}
-                </span>
-                <button className="px-6 py-2.5 gradient-gold text-accent-foreground text-xs font-semibold tracking-wider uppercase rounded-sm hover:opacity-90 transition-opacity">
+              <div className="flex items-center justify-end">
+                <a
+                  href="https://wa.me/6282136421628"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-2.5 gradient-gold text-accent-foreground text-xs font-semibold tracking-wider uppercase rounded-sm hover:opacity-90 transition-opacity"
+                >
                   Buy Now
-                </button>
+                </a>
               </div>
             </div>
           ))}

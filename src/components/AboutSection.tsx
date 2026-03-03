@@ -1,23 +1,33 @@
 import { useState } from "react";
 import { toast } from "sonner";
+import { supabase } from "@/lib/supabase";
 
 const AboutSection = () => {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
       toast.error("Please fill in all required fields.");
       return;
     }
     setSending(true);
-    // Simulated submission
-    setTimeout(() => {
+    try {
+      const { error } = await supabase.from("contact_leads").insert({
+        name: form.name.trim(),
+        email: form.email.trim(),
+        subject: form.subject.trim() || null,
+        message: form.message.trim(),
+      });
+      if (error) throw error;
       toast.success("Message sent! We'll be in touch soon.");
       setForm({ name: "", email: "", subject: "", message: "" });
+    } catch (err: any) {
+      toast.error(err?.message || "Something went wrong. Please try again.");
+    } finally {
       setSending(false);
-    }, 1000);
+    }
   };
 
   return (
