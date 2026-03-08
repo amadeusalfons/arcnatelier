@@ -38,9 +38,11 @@ const WhyArcn = () => {
     return () => observer.disconnect();
   }, []);
 
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation(0.2);
+
   return (
     <section className="py-24 md:py-32 bg-background">
-      <div className="container mx-auto px-6">
+      <div ref={headerRef} className={`container mx-auto px-6 transition-all duration-700 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <div className="text-center mb-16">
           <p className="text-accent font-body text-sm tracking-[0.3em] uppercase mb-4">
             Why Choose Us

@@ -92,11 +92,13 @@ const ScentFinder = () => {
 
   const animClass = direction === "right" ? "animate-slide-right" : "animate-slide-left";
 
+  const { ref: sectionRef, isVisible } = useScrollAnimation(0.1);
+
   return (
     <section id="scent-finder" className="py-24 md:py-32 gradient-burgundy relative overflow-hidden">
       <div className="absolute inset-0 shimmer pointer-events-none opacity-50" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div ref={sectionRef} className={`container mx-auto px-6 relative z-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <div className="text-center mb-12">
           <p className="text-accent font-body text-sm tracking-[0.3em] uppercase mb-4">
             Interactive Experience
