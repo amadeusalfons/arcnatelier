@@ -89,6 +89,9 @@ const Catalogue = () => {
                   alt={`ARCN ${product.name} - ${product.tagline}`}
                   className="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
+                  decoding="async"
+                  width={600}
+                  height={800}
                 />
                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/10 transition-colors duration-500" />
                 <span className="absolute top-4 left-4 text-accent font-body text-xs tracking-[0.2em] uppercase bg-primary/60 backdrop-blur-sm px-3 py-1 rounded-sm">
