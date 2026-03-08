@@ -76,7 +76,7 @@ const Catalogue = () => {
             <div
               key={product.name}
               data-idx={i}
-              className={`group transition-all duration-700 ${
+              className={`group flex flex-col transition-all duration-700 ${
                 visible.includes(i)
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-12"
@@ -102,10 +102,10 @@ const Catalogue = () => {
               <p className="text-primary-foreground/70 font-body text-sm leading-relaxed mb-3">
                 {product.description}
               </p>
-              <p className="text-accent/80 font-body text-xs tracking-wide mb-4 italic">
+              <p className="text-accent/80 font-body text-xs tracking-wide italic">
                 {product.notes}
               </p>
-              <div className="flex items-center justify-end">
+              <div className="mt-auto pt-6 flex items-center justify-end">
                 <a
                   href="https://wa.me/6282136421628"
                   target="_blank"

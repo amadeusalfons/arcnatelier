@@ -43,7 +43,7 @@ const phases = [
 const LovePhases = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
-    loop: false,
+    loop: true,
     skipSnaps: false,
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -94,6 +94,7 @@ const LovePhases = () => {
                   <div
                     key={phase.name}
                     className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-4"
+
                   >
                     <div
                       className={`text-center py-10 transition-all duration-500 ${
