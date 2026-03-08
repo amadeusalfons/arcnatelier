@@ -10,6 +10,10 @@ const Hero = () => {
           alt="ARCN luxury perfume bottle on burgundy velvet with golden light"
           className="w-full h-full object-cover"
           loading="eager"
+          decoding="async"
+          fetchPriority="high"
+          width={1920}
+          height={1080}
         />
         <div className="absolute inset-0 gradient-hero opacity-70" />
         <div className="absolute inset-0 bg-primary/40" />
