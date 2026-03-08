@@ -76,7 +76,7 @@ const Catalogue = () => {
             <div
               key={product.name}
               data-idx={i}
-              className={`group transition-all duration-700 ${
+              className={`group flex flex-col transition-all duration-700 ${
                 visible.includes(i)
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-12"
