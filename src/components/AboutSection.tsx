@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
 import { supabase } from "@/lib/supabase";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name is too long"),
@@ -40,9 +41,11 @@ const AboutSection = () => {
     }
   };
 
+  const { ref: sectionRef, isVisible } = useScrollAnimation(0.1);
+
   return (
     <section id="about" className="py-24 md:py-32 bg-card">
-      <div className="container mx-auto px-6">
+      <div ref={sectionRef} className={`container mx-auto px-6 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Mission */}
           <div>
