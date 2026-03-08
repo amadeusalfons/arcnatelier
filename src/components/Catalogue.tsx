@@ -1,32 +1,33 @@
 import { useEffect, useRef, useState } from "react";
-import productEdp from "@/assets/product-edp.jpg";
-import productDiffuser from "@/assets/product-diffuser.jpg";
-import productKit from "@/assets/product-kit.jpg";
+import productIgnite from "@/assets/product-ignite.png";
+import productAura from "@/assets/product-aura.png";
+import productDiscovery from "@/assets/product-discovery.png";
 
 const products = [
   {
-    name: "Eau de Parfum",
-    tagline: "The Signature",
-    description: "A full-bodied fragrance that tells your complete love story. Bold, lasting, and unmistakably yours.",
-    notes: "Top: Bergamot, Pink Pepper · Heart: Rose, Oud · Base: Amber, Vanilla",
-    image: productEdp,
-    
+    name: "Ignite — Eau de Parfum",
+    tagline: "The Spark",
+    description:
+      "A bold opening of zesty pomegranate and bergamot that melts into a lush heart of lemon blossom, peony, and jasmine—grounded by warm musk, ambroxan, and creamy sandalwood.",
+    notes:
+      "Top: Pomegranate, Lemon, Bergamot · Heart: Lemon Blossom, Peony, Jasmine · Base: Musk, Ambroxan, Woodsy, Sandalwood",
+    image: productIgnite,
   },
   {
-    name: "Room Diffuser",
-    tagline: "The Atmosphere",
-    description: "Transform your space into a chapter of your story. Subtle, continuous, and enveloping.",
-    notes: "Sandalwood, White Musk, Cedarwood, Warm Amber",
-    image: productDiffuser,
-    
+    name: "Aura — Eau de Parfum",
+    tagline: "The Presence",
+    description:
+      "A crisp apple opening unfolds into romantic rose, peony, and jasmine, settling into a rich, enveloping warmth of vanilla bean and amber.",
+    notes: "Top: Apple · Heart: Rose, Peony, Jasmine · Base: Vanilla Bean, Amber",
+    image: productAura,
   },
   {
     name: "Discovery Kit",
     tagline: "The Journey Begins",
-    description: "Five miniature bottles, each representing a Love Phase. The perfect introduction to ARCN.",
-    notes: "All 5 Love Phase scents · 5 x 5ml travel vials",
-    image: productKit,
-    
+    description:
+      "Two mini bottles representing the current Love Phase — The Spark. The perfect introduction to ARCN.",
+    notes: "Ignite & Aura · 2 × 10 ml travel vials",
+    image: productDiscovery,
   },
 ];
 
@@ -46,7 +47,9 @@ const Catalogue = () => {
       },
       { threshold: 0.15 }
     );
-    ref.current?.querySelectorAll("[data-idx]").forEach((el) => observer.observe(el));
+    ref.current
+      ?.querySelectorAll("[data-idx]")
+      .forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
@@ -65,13 +68,18 @@ const Catalogue = () => {
           </p>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
+        <div
+          ref={ref}
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto"
+        >
           {products.map((product, i) => (
             <div
               key={product.name}
               data-idx={i}
               className={`group transition-all duration-700 ${
-                visible.includes(i) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+                visible.includes(i)
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-12"
               }`}
               style={{ transitionDelay: `${i * 200}ms` }}
             >
