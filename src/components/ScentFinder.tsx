@@ -2,6 +2,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { z } from "zod";
 import { supabase } from "@/lib/supabase";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 type QuizStep = "q1" | "q2" | "lead" | "result";
 
