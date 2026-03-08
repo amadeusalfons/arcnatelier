@@ -8,6 +8,7 @@ import AboutSection from "@/components/AboutSection";
 import ScentFinder from "@/components/ScentFinder";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <ScentFinder />
       <FAQ />
       <Footer />
+      <WhatsAppFloat />
     </main>
   );
 };
