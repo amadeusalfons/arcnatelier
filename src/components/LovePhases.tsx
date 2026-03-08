@@ -43,7 +43,7 @@ const phases = [
 const LovePhases = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
-    loop: false,
+    loop: true,
     skipSnaps: false,
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
