@@ -83,7 +83,7 @@ const Catalogue = () => {
               }`}
               style={{ transitionDelay: `${i * 200}ms` }}
             >
-              <div className="relative overflow-hidden rounded-sm mb-6">
+              <div className="relative overflow-hidden rounded-sm mb-6 shadow-lg shadow-black/20 group-hover:shadow-xl group-hover:shadow-black/30 transition-shadow duration-500">
                 <img
                   src={product.image}
                   alt={`ARCN ${product.name} - ${product.tagline}`}

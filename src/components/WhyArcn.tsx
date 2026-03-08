@@ -56,7 +56,7 @@ const WhyArcn = () => {
           {values.map((item, i) => (
             <div
               key={item.title}
-              className={`text-center p-8 rounded-sm border border-border hover:border-accent/40 transition-all duration-700 group ${
+              className={`text-center p-8 rounded-sm border border-border hover:border-accent/40 hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1 transition-all duration-700 group ${
                 visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
               }`}
               style={{ transitionDelay: `${i * 150}ms` }}

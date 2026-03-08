@@ -27,7 +27,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-6">
-        <a href="#home" className="font-heading text-2xl md:text-3xl font-bold tracking-[0.3em] text-primary-foreground">
+        <a href="#home" className="font-heading text-2xl md:text-3xl font-bold tracking-[0.3em] text-primary-foreground hover:text-accent transition-colors duration-300">
           ARCN
         </a>
 
