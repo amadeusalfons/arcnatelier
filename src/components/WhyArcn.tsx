@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Sparkles, Heart, Shield, Star } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 const values = [
   {
