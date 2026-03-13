@@ -26,7 +26,7 @@ const products = [
     tagline: "The Journey Begins",
     description:
       "Two mini bottles representing the current Love Phase — The Spark. The perfect introduction to ARCN.",
-    notes: "Ignite & Aura · 2 × 10 ml travel vials",
+    notes: "Ignite & Aura · 2 × 5 ml travel vials",
     image: productDiscovery,
   },
 ];
