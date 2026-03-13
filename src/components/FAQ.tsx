@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     q: "What are the bottle sizes available?",
-    a: "Ignite and Aura come in 50 ml full-size bottles. The Discovery Kit includes 2 × 10 ml travel vials — perfect for trying both scents.",
+    a: "Ignite and Aura come in 30 ml full-size bottles. The Discovery Kit includes 2 × 5 ml travel vials — perfect for trying both scents.",
   },
   {
     q: "Are your perfumes unisex?",
