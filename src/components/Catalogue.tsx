@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import productIgnite from "@/assets/product-ignite.png";
-import productAura from "@/assets/product-aura.png";
-import productDiscovery from "@/assets/product-discovery.png";
+import productIgnite from "@/assets/product-ignite.webp";
+import productAura from "@/assets/product-aura.webp";
+import productDiscovery from "@/assets/product-discovery.webp";
 
 const products = [
   {
