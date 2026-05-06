@@ -1,54 +1,29 @@
-# Welcome to your Lovable project
+# ARCN Atelier - Your Scent, Your Story
 
-## Project info
+ARCN Atelier is a luxury, story-driven perfume brand designed to map fragrances to the chapters of your life and love story.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## The Concept: Love Phases
+Our collection follows the arc of a relationship:
+1. **The Spark** – Fresh & bright.
+2. **Bloom** – Warm & sweet.
+3. **Passion** – Bold & sensual.
+4. **Trials** – Complex & resilient.
+5. **Memory** – Nostalgic & comforting.
 
-## How can I edit this code?
+## 🧴 Key Products
+* **ARCN Ignite** – Pomegranate, Peony, and Sandalwood.
+* **ARCN Aura** – Apple, Rose, and Vanilla Bean.
+* **Discovery Kit** – 2 x 5ml travel vials for the journey.
 
-There are several ways of editing your application.
+## ✨ Why ARCN?
+* **Story-Driven:** Every scent carries emotional intention.
+* **Accessible Luxury:** Premium quality without the designer price tag.
+* **Personalized:** Find your match via our [Scent Finder](https://arcnatelier.lovable.app/).
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🌐 Connect
+* **Web:** [arcnatelier.lovable.app](https://arcnatelier.lovable.app/)
+* **IG:** [@arcn.atelier](https://www.instagram.com/arcn.atelier)
+* **Email:** arcnatelier@gmail.com
 
 ## What technologies are used for this project?
 
@@ -59,15 +34,3 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
