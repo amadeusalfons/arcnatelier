@@ -110,7 +110,7 @@ const Catalogue = () => {
               </p>
               <div className="mt-auto pt-6 flex items-center justify-end">
                 <a
-                  href="https://wa.me/6282136421628"
+                  href="https://id.shp.ee/RMqPDnsL"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-2.5 gradient-gold text-accent-foreground text-xs font-semibold tracking-wider uppercase rounded-sm hover:opacity-90 transition-opacity"
